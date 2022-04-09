@@ -1,0 +1,5 @@
+a : bool;
+{
+    b = + - * e b c d;
+    c = / b a;
+}
