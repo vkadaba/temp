@@ -44,3 +44,4 @@ string InputBuffer::UngetString(string s)
         input_buffer.push_back(s[s.size()-i-1]);
     return s;
 }
+

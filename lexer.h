@@ -39,7 +39,7 @@ class LexicalAnalyzer {
     InputBuffer input;
 
     bool SkipSpace();
-    //bool SkipComments();
+    bool SkipComments();
     bool IsKeyword(std::string);
     TokenType FindKeywordIndex(std::string);
     Token ScanIdOrKeyword();
@@ -53,3 +53,4 @@ int Search_List(std::string n);
 
 
 #endif  //__LEXER__H__
+

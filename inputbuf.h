@@ -21,3 +21,4 @@ class InputBuffer {
 };
 
 #endif  //__INPUT_BUFFER__H__
+
