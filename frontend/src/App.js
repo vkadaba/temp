@@ -1,52 +1,468 @@
-import { useEffect } from "react";
-import "@/App.css";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import axios from "axios";
+import React, { useEffect, useState } from 'react';
+import '@/App.css';
+import axios from 'axios';
+import { Phone, Mail, MapPin, ChevronRight, Award, Users, Wrench, CheckCircle, ExternalLink, Play } from 'lucide-react';
 
 const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 const API = `${BACKEND_URL}/api`;
 
-const Home = () => {
-  const helloWorldApi = async () => {
+function App() {
+  const [partnerships, setPartnerships] = useState([]);
+  const [products, setProducts] = useState([]);
+  const [testimonials, setTestimonials] = useState([]);
+  const [contactForm, setContactForm] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    company: '',
+    message: ''
+  });
+  const [submitStatus, setSubmitStatus] = useState('');
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  const fetchData = async () => {
     try {
-      const response = await axios.get(`${API}/`);
-      console.log(response.data.message);
-    } catch (e) {
-      console.error(e, `errored out requesting / api`);
+      const [partnershipsRes, productsRes, testimonialsRes] = await Promise.all([
+        axios.get(`${API}/partnerships`),
+        axios.get(`${API}/products`),
+        axios.get(`${API}/testimonials`)
+      ]);
+      setPartnerships(partnershipsRes.data);
+      setProducts(productsRes.data);
+      setTestimonials(testimonialsRes.data);
+    } catch (error) {
+      console.error('Error fetching data:', error);
     }
   };
 
-  useEffect(() => {
-    helloWorldApi();
-  }, []);
+  const handleContactSubmit = async (e) => {
+    e.preventDefault();
+    setSubmitStatus('sending');
+    try {
+      await axios.post(`${API}/contact`, contactForm);
+      setSubmitStatus('success');
+      setContactForm({ name: '', email: '', phone: '', company: '', message: '' });
+      setTimeout(() => setSubmitStatus(''), 3000);
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      setSubmitStatus('error');
+      setTimeout(() => setSubmitStatus(''), 3000);
+    }
+  };
+
+  const productCategories = [
+    {
+      title: 'Electronic Assembly Products',
+      description: 'PCB loader, Screen printer, Pick and Place, Reflow oven, 3D SPI',
+      icon: '🔧'
+    },
+    {
+      title: 'Assembly Tools',
+      description: 'Component forming tools, ESD workbench, Soldering stations, BGA rework',
+      icon: '🛠️'
+    },
+    {
+      title: 'Inspection and Testing',
+      description: 'AOI, 3D SPI, X-Ray inspection, Bond tester, Flying probe tester',
+      icon: '🔍'
+    },
+    {
+      title: 'Semiconductor',
+      description: 'AOI, Manual bonders, Bond tester, Plasma cleaning, X-Ray inspection',
+      icon: '💾'
+    },
+    {
+      title: 'Non Destructive Testing',
+      description: 'SAM, Topography measurement, X-Ray inspection',
+      icon: '📊'
+    },
+    {
+      title: 'Mechanical',
+      description: 'CNC machines, PCB drilling machines, PCB routing machines',
+      icon: '⚙️'
+    }
+  ];
+
+  const clientLogos = [
+    { name: 'ABB Group', src: 'https://www.accurexsolutions.com/img/client-logo/abb.png' },
+    { name: 'Aplab Limited', src: 'https://www.accurexsolutions.com/img/client-logo/aplab.png' },
+    { name: 'Bharat Electronics', src: 'https://www.accurexsolutions.com/img/client-logo/bel.png' },
+    { name: 'BHEL', src: 'https://www.accurexsolutions.com/img/client-logo/bhel.png' },
+    { name: 'HCL', src: 'https://www.accurexsolutions.com/img/client-logo/hcl.png' },
+    { name: 'Tata Group', src: 'https://www.accurexsolutions.com/img/client-logo/tata.png' },
+    { name: 'DRDO', src: 'https://www.accurexsolutions.com/img/client-logo/drdo.png' },
+    { name: 'Intel', src: 'https://www.accurexsolutions.com/img/client-logo/intel.png' }
+  ];
 
   return (
-    <div>
-      <header className="App-header">
-        <a
-          className="App-link"
-          href="https://emergent.sh"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <img src="https://avatars.githubusercontent.com/in/1201222?s=120&u=2686cf91179bbafbc7a71bfbc43004cf9ae1acea&v=4" />
-        </a>
-        <p className="mt-5">Building something incredible ~!</p>
-      </header>
-    </div>
-  );
-};
+    <div className="min-h-screen bg-white" data-testid="accurex-website">
+      {/* SEO Meta tags handled in index.html */}
+      
+      {/* Navigation */}
+      <nav className="bg-white shadow-md sticky top-0 z-50" data-testid="main-navigation">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between items-center h-16">
+            <div className="flex items-center">
+              <span className="text-2xl font-bold text-blue-900">Accurex Solutions</span>
+            </div>
+            <div className="hidden md:flex space-x-8">
+              <a href="#about" className="text-gray-700 hover:text-blue-900 transition">About</a>
+              <a href="#products" className="text-gray-700 hover:text-blue-900 transition">Products</a>
+              <a href="#partnerships" className="text-gray-700 hover:text-blue-900 transition">Partnerships</a>
+              <a href="#testimonials" className="text-gray-700 hover:text-blue-900 transition">Testimonials</a>
+              <a href="#contact" className="text-gray-700 hover:text-blue-900 transition">Contact</a>
+            </div>
+          </div>
+        </div>
+      </nav>
 
-function App() {
-  return (
-    <div className="App">
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Home />}>
-            <Route index element={<Home />} />
-          </Route>
-        </Routes>
-      </BrowserRouter>
+      {/* Hero Section */}
+      <section className="relative bg-gradient-to-r from-blue-900 via-blue-800 to-blue-900 text-white py-20" data-testid="hero-section">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div>
+              <div className="inline-block bg-yellow-400 text-blue-900 px-6 py-3 rounded-lg font-bold text-xl mb-6 shadow-lg" data-testid="years-badge">
+                🎉 Celebrating 39 Years of Excellence
+              </div>
+              <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight">
+                Fulfilling Our Promise to Electronic Assembly Houses
+              </h1>
+              <p className="text-xl mb-8 text-blue-100">
+                Solutions from drawing board to product. Outstanding support to over 2000+ clients across Aerospace, Defence, Consumer Electronics, Medical, and EMS sectors.
+              </p>
+              <div className="flex flex-wrap gap-4">
+                <a href="#contact" className="bg-yellow-400 text-blue-900 px-8 py-3 rounded-lg font-semibold hover:bg-yellow-300 transition shadow-lg" data-testid="cta-contact">
+                  Get In Touch
+                </a>
+                <a href="#products" className="bg-white/10 backdrop-blur-sm text-white border-2 border-white px-8 py-3 rounded-lg font-semibold hover:bg-white/20 transition" data-testid="cta-products">
+                  View Products
+                </a>
+              </div>
+            </div>
+            <div className="hidden md:block">
+              <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-8 shadow-2xl">
+                <div className="grid grid-cols-2 gap-6">
+                  <div className="text-center">
+                    <Award className="w-12 h-12 mx-auto mb-2 text-yellow-400" />
+                    <div className="text-3xl font-bold">39</div>
+                    <div className="text-sm text-blue-200">Years Excellence</div>
+                  </div>
+                  <div className="text-center">
+                    <Users className="w-12 h-12 mx-auto mb-2 text-yellow-400" />
+                    <div className="text-3xl font-bold">2000+</div>
+                    <div className="text-sm text-blue-200">Clients</div>
+                  </div>
+                  <div className="text-center">
+                    <Wrench className="w-12 h-12 mx-auto mb-2 text-yellow-400" />
+                    <div className="text-3xl font-bold">24/7</div>
+                    <div className="text-sm text-blue-200">Support</div>
+                  </div>
+                  <div className="text-center">
+                    <CheckCircle className="w-12 h-12 mx-auto mb-2 text-yellow-400" />
+                    <div className="text-3xl font-bold">100%</div>
+                    <div className="text-sm text-blue-200">Commitment</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* About Section */}
+      <section id="about" className="py-16 bg-gray-50" data-testid="about-section">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">Welcome to Accurex Solutions</h2>
+            <div className="w-24 h-1 bg-blue-900 mx-auto mb-6"></div>
+            <p className="text-lg text-gray-700 max-w-3xl mx-auto">
+              Established in <strong>1987</strong>, Accurex Solutions Pvt. Ltd., Bengaluru, is a leading <strong>manufacturer, supplier, and service provider</strong> in the electronics industry. We manufacture customized <strong>Automatic Test Equipment (ATE)</strong>, test jigs, and PC-based fixtures, providing turnkey <strong>SMT process equipment</strong> for electronic assembly.
+            </p>
+          </div>
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="bg-white p-6 rounded-lg shadow-lg">
+              <div className="text-blue-900 text-4xl mb-4">🎯</div>
+              <h3 className="text-xl font-bold mb-3 text-gray-900">Customized Testing Solutions</h3>
+              <p className="text-gray-600">Tailored ATE and test fixtures designed specifically for your manufacturing needs</p>
+            </div>
+            <div className="bg-white p-6 rounded-lg shadow-lg">
+              <div className="text-blue-900 text-4xl mb-4">⚡</div>
+              <h3 className="text-xl font-bold mb-3 text-gray-900">24x7 Support</h3>
+              <p className="text-gray-600">Factory-trained engineers providing consistent after-sales service support</p>
+            </div>
+            <div className="bg-white p-6 rounded-lg shadow-lg">
+              <div className="text-blue-900 text-4xl mb-4">🏭</div>
+              <h3 className="text-xl font-bold mb-3 text-gray-900">Turnkey Solutions</h3>
+              <p className="text-gray-600">Complete SMT line equipment from PCB loader to unloader</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Products Section */}
+      <section id="products" className="py-16 bg-white" data-testid="products-section">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">Our Product Categories</h2>
+            <div className="w-24 h-1 bg-blue-900 mx-auto mb-6"></div>
+            <p className="text-lg text-gray-700 max-w-3xl mx-auto">
+              Comprehensive solutions for <strong>PCB assembly</strong>, <strong>semiconductor testing</strong>, <strong>inspection equipment</strong>, and <strong>electronic manufacturing</strong>
+            </p>
+          </div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {productCategories.map((category, index) => (
+              <div key={index} className="bg-gray-50 p-6 rounded-lg hover:shadow-xl transition border border-gray-200" data-testid={`product-category-${index}`}>
+                <div className="text-5xl mb-4">{category.icon}</div>
+                <h3 className="text-xl font-bold mb-3 text-gray-900">{category.title}</h3>
+                <p className="text-gray-600 mb-4">{category.description}</p>
+                <div className="flex items-center text-blue-900 font-semibold">
+                  Learn More <ChevronRight className="w-4 h-4 ml-1" />
+                </div>
+              </div>
+            ))}
+          </div>
+          
+          {/* Image Upload Placeholder */}
+          <div className="mt-12 bg-blue-50 border-2 border-dashed border-blue-300 rounded-lg p-12 text-center" data-testid="product-images-placeholder">
+            <div className="text-blue-900 text-6xl mb-4">📷</div>
+            <h3 className="text-2xl font-bold text-gray-900 mb-2">Product Images Section</h3>
+            <p className="text-gray-600 mb-4">Upload your product equipment images and updates here</p>
+            <div className="inline-block bg-blue-900 text-white px-6 py-2 rounded-lg">
+              Image Upload Area - Coming Soon
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* OEM Partnerships Section */}
+      <section id="partnerships" className="py-16 bg-gradient-to-br from-blue-50 to-white" data-testid="partnerships-section">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">Our OEM Partnerships</h2>
+            <div className="w-24 h-1 bg-blue-900 mx-auto mb-6"></div>
+            <p className="text-lg text-gray-700 max-w-3xl mx-auto">
+              Strategic partnerships with global leaders in <strong>electronics manufacturing equipment</strong> and <strong>semiconductor testing solutions</strong>
+            </p>
+          </div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {partnerships.map((partnership, index) => (
+              <div key={partnership.id} className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition" data-testid={`partnership-${index}`}>
+                <div className="p-6">
+                  {partnership.partnership_date === '2025' && (
+                    <div className="inline-block bg-green-500 text-white px-3 py-1 rounded-full text-sm font-semibold mb-4">
+                      🆕 NEW 2025
+                    </div>
+                  )}
+                  <h3 className="text-2xl font-bold text-gray-900 mb-3">{partnership.company_name}</h3>
+                  <p className="text-gray-600 mb-4">{partnership.description}</p>
+                  {partnership.products_offered && (
+                    <div className="mb-4">
+                      <span className="font-semibold text-gray-900">Products:</span>
+                      <p className="text-sm text-gray-600 mt-1">{partnership.products_offered}</p>
+                    </div>
+                  )}
+                  <a 
+                    href={partnership.website_url} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center text-blue-900 font-semibold hover:text-blue-700 transition"
+                  >
+                    Visit Website <ExternalLink className="w-4 h-4 ml-2" />
+                  </a>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials Section */}
+      <section id="testimonials" className="py-16 bg-white" data-testid="testimonials-section">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">What Our Clients Say</h2>
+            <div className="w-24 h-1 bg-blue-900 mx-auto mb-6"></div>
+            <p className="text-lg text-gray-700 max-w-3xl mx-auto">
+              Trusted by leading companies in <strong>aerospace</strong>, <strong>defense electronics</strong>, <strong>consumer electronics</strong>, and <strong>medical device manufacturing</strong>
+            </p>
+          </div>
+          
+          {/* Video Testimonial Placeholder */}
+          <div className="mb-12 bg-gradient-to-br from-blue-900 to-blue-800 rounded-xl p-8 shadow-2xl" data-testid="video-testimonial-placeholder">
+            <div className="max-w-4xl mx-auto">
+              <div className="bg-black/20 backdrop-blur-sm rounded-lg p-12 text-center border-2 border-white/30">
+                <Play className="w-24 h-24 mx-auto mb-6 text-white" />
+                <h3 className="text-3xl font-bold text-white mb-3">Featured Video Testimonial</h3>
+                <p className="text-xl text-blue-100 mb-4">
+                  Mr. Chan Wha Pak - Demo Center Inauguration Speech
+                </p>
+                <div className="inline-block bg-yellow-400 text-blue-900 px-6 py-3 rounded-lg font-semibold">
+                  📹 Video Upload Area - Add your video URL here
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Text Testimonials */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {testimonials.filter(t => t.testimonial_text && t.testimonial_text !== 'Video testimonial from demo center inauguration').map((testimonial, index) => (
+              <div key={testimonial.id} className="bg-gray-50 p-6 rounded-lg shadow-lg" data-testid={`testimonial-${index}`}>
+                <div className="text-blue-900 text-4xl mb-4">"</div>
+                <p className="text-gray-700 mb-4 italic">{testimonial.testimonial_text}</p>
+                <div className="border-t pt-4">
+                  <p className="font-semibold text-gray-900">{testimonial.client_name}</p>
+                  {testimonial.company_name && (
+                    <p className="text-sm text-gray-600">{testimonial.company_name}</p>
+                  )}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Client Logos Section */}
+      <section className="py-16 bg-gray-50" data-testid="clients-section">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">Our Valued Clients</h2>
+            <div className="w-24 h-1 bg-blue-900 mx-auto mb-6"></div>
+            <p className="text-lg text-gray-700">Trusted by over 2000+ leading organizations</p>
+          </div>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 items-center">
+            {clientLogos.map((client, index) => (
+              <div key={index} className="bg-white p-6 rounded-lg shadow hover:shadow-lg transition flex items-center justify-center" data-testid={`client-logo-${index}`}>
+                <img src={client.src} alt={client.name} className="max-h-16 w-auto grayscale hover:grayscale-0 transition" />
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Contact Section */}
+      <section id="contact" className="py-16 bg-gradient-to-br from-blue-900 to-blue-800 text-white" data-testid="contact-section">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold mb-4">Get In Touch</h2>
+            <div className="w-24 h-1 bg-yellow-400 mx-auto mb-6"></div>
+            <p className="text-xl text-blue-100">One passion, One Goal - Let's work together!</p>
+          </div>
+          <div className="grid md:grid-cols-2 gap-12">
+            <div>
+              <h3 className="text-2xl font-bold mb-6">Contact Information</h3>
+              <div className="space-y-4">
+                <div className="flex items-start">
+                  <MapPin className="w-6 h-6 mr-4 mt-1 flex-shrink-0" />
+                  <div>
+                    <p className="font-semibold">Address</p>
+                    <p className="text-blue-100">Accurex Solutions Pvt. Ltd.<br />Bengaluru, Karnataka, India</p>
+                  </div>
+                </div>
+                <div className="flex items-start">
+                  <Phone className="w-6 h-6 mr-4 mt-1 flex-shrink-0" />
+                  <div>
+                    <p className="font-semibold">Phone</p>
+                    <p className="text-blue-100">24x7 Support Available</p>
+                  </div>
+                </div>
+                <div className="flex items-start">
+                  <Mail className="w-6 h-6 mr-4 mt-1 flex-shrink-0" />
+                  <div>
+                    <p className="font-semibold">Email</p>
+                    <p className="text-blue-100">info@accurexsolutions.com</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div>
+              <form onSubmit={handleContactSubmit} className="space-y-4" data-testid="contact-form">
+                <div>
+                  <input
+                    type="text"
+                    placeholder="Your Name *"
+                    required
+                    value={contactForm.name}
+                    onChange={(e) => setContactForm({...contactForm, name: e.target.value})}
+                    className="w-full px-4 py-3 rounded-lg text-gray-900"
+                    data-testid="contact-name"
+                  />
+                </div>
+                <div>
+                  <input
+                    type="email"
+                    placeholder="Your Email *"
+                    required
+                    value={contactForm.email}
+                    onChange={(e) => setContactForm({...contactForm, email: e.target.value})}
+                    className="w-full px-4 py-3 rounded-lg text-gray-900"
+                    data-testid="contact-email"
+                  />
+                </div>
+                <div>
+                  <input
+                    type="tel"
+                    placeholder="Phone Number"
+                    value={contactForm.phone}
+                    onChange={(e) => setContactForm({...contactForm, phone: e.target.value})}
+                    className="w-full px-4 py-3 rounded-lg text-gray-900"
+                    data-testid="contact-phone"
+                  />
+                </div>
+                <div>
+                  <input
+                    type="text"
+                    placeholder="Company Name"
+                    value={contactForm.company}
+                    onChange={(e) => setContactForm({...contactForm, company: e.target.value})}
+                    className="w-full px-4 py-3 rounded-lg text-gray-900"
+                    data-testid="contact-company"
+                  />
+                </div>
+                <div>
+                  <textarea
+                    placeholder="Your Message *"
+                    required
+                    rows="4"
+                    value={contactForm.message}
+                    onChange={(e) => setContactForm({...contactForm, message: e.target.value})}
+                    className="w-full px-4 py-3 rounded-lg text-gray-900"
+                    data-testid="contact-message"
+                  ></textarea>
+                </div>
+                <button
+                  type="submit"
+                  disabled={submitStatus === 'sending'}
+                  className="w-full bg-yellow-400 text-blue-900 px-8 py-3 rounded-lg font-semibold hover:bg-yellow-300 transition disabled:opacity-50"
+                  data-testid="contact-submit"
+                >
+                  {submitStatus === 'sending' ? 'Sending...' : 'Send Message'}
+                </button>
+                {submitStatus === 'success' && (
+                  <p className="text-green-400 text-center">Message sent successfully!</p>
+                )}
+                {submitStatus === 'error' && (
+                  <p className="text-red-400 text-center">Error sending message. Please try again.</p>
+                )}
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="bg-gray-900 text-white py-8" data-testid="footer">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <p className="text-gray-400">
+            © 1987 - 2025. Accurex Solutions Pvt. Ltd. | Celebrating 39 Years of Excellence in Electronics Manufacturing Solutions
+          </p>
+          <p className="text-sm text-gray-500 mt-2">
+            <strong>Keywords:</strong> SMT Equipment India | PCB Assembly Solutions | Semiconductor Testing | Automatic Test Equipment | Electronic Manufacturing Services | Pick and Place Machines | Reflow Ovens | X-Ray Inspection | AOI Systems | Capital Equipment
+          </p>
+        </div>
+      </footer>
     </div>
   );
 }
