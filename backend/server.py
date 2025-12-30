@@ -46,7 +46,7 @@ class Partnership(BaseModel):
     website_url: str
     description: str
     partnership_date: str
-    logo_url: Optional<str> = None
+    logo_url: Optional[str] = None
     products_offered: Optional[str] = None
     is_featured: bool = False
     created_at: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
