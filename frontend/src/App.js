@@ -55,6 +55,25 @@ function App() {
     }
   };
 
+  const handleCategoryClick = async (categoryName) => {
+    setSelectedCategory(categoryName);
+    try {
+      const response = await axios.get(`${API}/products?category=${encodeURIComponent(categoryName)}`);
+      setCategoryProducts(response.data);
+    } catch (error) {
+      console.error('Error fetching category products:', error);
+    }
+  };
+
+  const closeProductModal = () => {
+    setSelectedCategory(null);
+    setCategoryProducts([]);
+  };
+
+  const getProductCountByCategory = (categoryName) => {
+    return products.filter(p => p.category === categoryName).length;
+  };
+
   const productCategories = [
     {
       title: 'Electronic Assembly Products',
