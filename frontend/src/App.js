@@ -275,7 +275,7 @@ function App() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold text-gray-900 mb-4">Our OEM Partnerships</h2>
-            <div className="w-24 h-1 bg-blue-900 mx-auto mb-6"></div>
+            <div className="w-24 h-1 bg-[#1B3C9B] mx-auto mb-6"></div>
             <p className="text-lg text-gray-700 max-w-3xl mx-auto">
               Strategic partnerships with global leaders in <strong>electronics manufacturing equipment</strong> and <strong>semiconductor testing solutions</strong>
             </p>
