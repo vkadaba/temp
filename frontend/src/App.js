@@ -10,6 +10,8 @@ function App() {
   const [partnerships, setPartnerships] = useState([]);
   const [products, setProducts] = useState([]);
   const [testimonials, setTestimonials] = useState([]);
+  const [selectedCategory, setSelectedCategory] = useState(null);
+  const [categoryProducts, setCategoryProducts] = useState([]);
   const [contactForm, setContactForm] = useState({
     name: '',
     email: '',
