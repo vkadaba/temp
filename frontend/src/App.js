@@ -234,16 +234,29 @@ function App() {
             </p>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {productCategories.map((category, index) => (
-              <div key={index} className="bg-gray-50 p-6 rounded-lg hover:shadow-xl transition border border-gray-200" data-testid={`product-category-${index}`}>
-                <div className="text-5xl mb-4">{category.icon}</div>
-                <h3 className="text-xl font-bold mb-3 text-gray-900">{category.title}</h3>
-                <p className="text-gray-600 mb-4">{category.description}</p>
-                <div className="flex items-center text-blue-900 font-semibold">
-                  Learn More <ChevronRight className="w-4 h-4 ml-1" />
+            {productCategories.map((category, index) => {
+              const productCount = getProductCountByCategory(category.title);
+              return (
+                <div 
+                  key={index} 
+                  onClick={() => handleCategoryClick(category.title)}
+                  className="bg-gray-50 p-6 rounded-lg hover:shadow-xl transition border border-gray-200 cursor-pointer transform hover:scale-105" 
+                  data-testid={`product-category-${index}`}
+                >
+                  <div className="text-5xl mb-4">{category.icon}</div>
+                  <h3 className="text-xl font-bold mb-3 text-gray-900">{category.title}</h3>
+                  <p className="text-gray-600 mb-4">{category.description}</p>
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center text-blue-900 font-semibold">
+                      View {productCount} Products <ChevronRight className="w-4 h-4 ml-1" />
+                    </div>
+                    <div className="bg-blue-900 text-white px-3 py-1 rounded-full text-sm font-bold">
+                      {productCount}
+                    </div>
+                  </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
           
           {/* Image Upload Placeholder */}
