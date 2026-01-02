@@ -202,24 +202,24 @@ function App() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold text-gray-900 mb-4">Welcome to Accurex Solutions</h2>
-            <div className="w-24 h-1 bg-blue-900 mx-auto mb-6"></div>
+            <div className="w-24 h-1 bg-[#1B3C9B] mx-auto mb-6"></div>
             <p className="text-lg text-gray-700 max-w-3xl mx-auto">
               Established in <strong>1987</strong>, Accurex Solutions Pvt. Ltd., Bengaluru, is a leading <strong>manufacturer, supplier, and service provider</strong> in the electronics industry. We manufacture customized <strong>Automatic Test Equipment (ATE)</strong>, test jigs, and PC-based fixtures, providing turnkey <strong>SMT process equipment</strong> for electronic assembly.
             </p>
           </div>
           <div className="grid md:grid-cols-3 gap-8">
-            <div className="bg-white p-6 rounded-lg shadow-lg">
-              <div className="text-blue-900 text-4xl mb-4">🎯</div>
+            <div className="bg-white p-6 rounded-lg shadow-lg border-t-4 border-[#1B3C9B]">
+              <div className="text-[#1B3C9B] text-4xl mb-4">🎯</div>
               <h3 className="text-xl font-bold mb-3 text-gray-900">Customized Testing Solutions</h3>
               <p className="text-gray-600">Tailored ATE and test fixtures designed specifically for your manufacturing needs</p>
             </div>
-            <div className="bg-white p-6 rounded-lg shadow-lg">
-              <div className="text-blue-900 text-4xl mb-4">⚡</div>
+            <div className="bg-white p-6 rounded-lg shadow-lg border-t-4 border-[#1B3C9B]">
+              <div className="text-[#1B3C9B] text-4xl mb-4">⚡</div>
               <h3 className="text-xl font-bold mb-3 text-gray-900">24x7 Support</h3>
               <p className="text-gray-600">Factory-trained engineers providing consistent after-sales service support</p>
             </div>
-            <div className="bg-white p-6 rounded-lg shadow-lg">
-              <div className="text-blue-900 text-4xl mb-4">🏭</div>
+            <div className="bg-white p-6 rounded-lg shadow-lg border-t-4 border-[#1B3C9B]">
+              <div className="text-[#1B3C9B] text-4xl mb-4">🏭</div>
               <h3 className="text-xl font-bold mb-3 text-gray-900">Turnkey Solutions</h3>
               <p className="text-gray-600">Complete SMT line equipment from PCB loader to unloader</p>
             </div>
