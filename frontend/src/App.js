@@ -317,14 +317,14 @@ function App() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold text-gray-900 mb-4">What Our Clients Say</h2>
-            <div className="w-24 h-1 bg-blue-900 mx-auto mb-6"></div>
+            <div className="w-24 h-1 bg-[#1B3C9B] mx-auto mb-6"></div>
             <p className="text-lg text-gray-700 max-w-3xl mx-auto">
               Trusted by leading companies in <strong>aerospace</strong>, <strong>defense electronics</strong>, <strong>consumer electronics</strong>, and <strong>medical device manufacturing</strong>
             </p>
           </div>
           
           {/* Video Testimonial Placeholder */}
-          <div className="mb-12 bg-gradient-to-br from-blue-900 to-blue-800 rounded-xl p-8 shadow-2xl" data-testid="video-testimonial-placeholder">
+          <div className="mb-12 bg-gradient-to-br from-[#1B3C9B] to-[#2046A4] rounded-xl p-8 shadow-2xl" data-testid="video-testimonial-placeholder">
             <div className="max-w-4xl mx-auto">
               <div className="bg-black/20 backdrop-blur-sm rounded-lg p-12 text-center border-2 border-white/30">
                 <Play className="w-24 h-24 mx-auto mb-6 text-white" />
@@ -332,7 +332,7 @@ function App() {
                 <p className="text-xl text-blue-100 mb-4">
                   Mr. Chan Wha Pak - Demo Center Inauguration Speech
                 </p>
-                <div className="inline-block bg-yellow-400 text-blue-900 px-6 py-3 rounded-lg font-semibold">
+                <div className="inline-block bg-white text-[#1B3C9B] px-6 py-3 rounded-lg font-semibold">
                   📹 Video Upload Area - Add your video URL here
                 </div>
               </div>
