@@ -301,7 +301,7 @@ function App() {
                     href={partnership.website_url} 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="inline-flex items-center text-blue-900 font-semibold hover:text-blue-700 transition"
+                    className="inline-flex items-center text-[#1B3C9B] font-semibold hover:text-[#2046A4] transition"
                   >
                     Visit Website <ExternalLink className="w-4 h-4 ml-2" />
                   </a>
