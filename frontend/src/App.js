@@ -343,7 +343,7 @@ function App() {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {testimonials.filter(t => t.testimonial_text && t.testimonial_text !== 'Video testimonial from demo center inauguration').map((testimonial, index) => (
               <div key={testimonial.id} className="bg-gray-50 p-6 rounded-lg shadow-lg" data-testid={`testimonial-${index}`}>
-                <div className="text-blue-900 text-4xl mb-4">"</div>
+                <div className="text-[#1B3C9B] text-4xl mb-4">"</div>
                 <p className="text-gray-700 mb-4 italic">{testimonial.testimonial_text}</p>
                 <div className="border-t pt-4">
                   <p className="font-semibold text-gray-900">{testimonial.client_name}</p>
