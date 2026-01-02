@@ -376,11 +376,11 @@ function App() {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-16 bg-gradient-to-br from-blue-900 to-blue-800 text-white" data-testid="contact-section">
+      <section id="contact" className="py-16 bg-gradient-to-br from-[#1B3C9B] to-[#2046A4] text-white" data-testid="contact-section">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold mb-4">Get In Touch</h2>
-            <div className="w-24 h-1 bg-yellow-400 mx-auto mb-6"></div>
+            <div className="w-24 h-1 bg-white mx-auto mb-6"></div>
             <p className="text-xl text-blue-100">One passion, One Goal - Let's work together!</p>
           </div>
           <div className="grid md:grid-cols-2 gap-12">
