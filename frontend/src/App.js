@@ -145,11 +145,11 @@ function App() {
       </nav>
 
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-r from-blue-900 via-blue-800 to-blue-900 text-white py-20" data-testid="hero-section">
+      <section className="relative bg-gradient-to-r from-[#1B3C9B] via-[#2046A4] to-[#1B3C9B] text-white py-20" data-testid="hero-section">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
-              <div className="inline-block bg-yellow-400 text-blue-900 px-6 py-3 rounded-lg font-bold text-xl mb-6 shadow-lg" data-testid="years-badge">
+              <div className="inline-block bg-white text-[#1B3C9B] px-6 py-3 rounded-lg font-bold text-xl mb-6 shadow-lg" data-testid="years-badge">
                 🎉 Celebrating 39 Years of Excellence
               </div>
               <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight">
@@ -159,7 +159,7 @@ function App() {
                 Solutions from drawing board to product. Outstanding support to over 2000+ clients across Aerospace, Defence, Consumer Electronics, Medical, and EMS sectors.
               </p>
               <div className="flex flex-wrap gap-4">
-                <a href="#contact" className="bg-yellow-400 text-blue-900 px-8 py-3 rounded-lg font-semibold hover:bg-yellow-300 transition shadow-lg" data-testid="cta-contact">
+                <a href="#contact" className="bg-white text-[#1B3C9B] px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition shadow-lg" data-testid="cta-contact">
                   Get In Touch
                 </a>
                 <a href="#products" className="bg-white/10 backdrop-blur-sm text-white border-2 border-white px-8 py-3 rounded-lg font-semibold hover:bg-white/20 transition" data-testid="cta-products">
@@ -171,22 +171,22 @@ function App() {
               <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-8 shadow-2xl">
                 <div className="grid grid-cols-2 gap-6">
                   <div className="text-center">
-                    <Award className="w-12 h-12 mx-auto mb-2 text-yellow-400" />
+                    <Award className="w-12 h-12 mx-auto mb-2 text-white" />
                     <div className="text-3xl font-bold">39</div>
                     <div className="text-sm text-blue-200">Years Excellence</div>
                   </div>
                   <div className="text-center">
-                    <Users className="w-12 h-12 mx-auto mb-2 text-yellow-400" />
+                    <Users className="w-12 h-12 mx-auto mb-2 text-white" />
                     <div className="text-3xl font-bold">2000+</div>
                     <div className="text-sm text-blue-200">Clients</div>
                   </div>
                   <div className="text-center">
-                    <Wrench className="w-12 h-12 mx-auto mb-2 text-yellow-400" />
+                    <Wrench className="w-12 h-12 mx-auto mb-2 text-white" />
                     <div className="text-3xl font-bold">24/7</div>
                     <div className="text-sm text-blue-200">Support</div>
                   </div>
                   <div className="text-center">
-                    <CheckCircle className="w-12 h-12 mx-auto mb-2 text-yellow-400" />
+                    <CheckCircle className="w-12 h-12 mx-auto mb-2 text-white" />
                     <div className="text-3xl font-bold">100%</div>
                     <div className="text-sm text-blue-200">Commitment</div>
                   </div>
