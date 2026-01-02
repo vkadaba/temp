@@ -232,7 +232,7 @@ function App() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold text-gray-900 mb-4">Our Product Categories</h2>
-            <div className="w-24 h-1 bg-blue-900 mx-auto mb-6"></div>
+            <div className="w-24 h-1 bg-[#1B3C9B] mx-auto mb-6"></div>
             <p className="text-lg text-gray-700 max-w-3xl mx-auto">
               Comprehensive solutions for <strong>PCB assembly</strong>, <strong>semiconductor testing</strong>, <strong>inspection equipment</strong>, and <strong>electronic manufacturing</strong>
             </p>
@@ -244,19 +244,14 @@ function App() {
                 <div 
                   key={index} 
                   onClick={() => handleCategoryClick(category.title)}
-                  className="bg-gray-50 p-6 rounded-lg hover:shadow-xl transition border border-gray-200 cursor-pointer transform hover:scale-105" 
+                  className="bg-white p-6 rounded-lg hover:shadow-xl transition border-2 border-gray-100 hover:border-[#1B3C9B] cursor-pointer transform hover:scale-105" 
                   data-testid={`product-category-${index}`}
                 >
                   <div className="text-5xl mb-4">{category.icon}</div>
-                  <h3 className="text-xl font-bold mb-3 text-gray-900">{category.title}</h3>
-                  <p className="text-gray-600 mb-4">{category.description}</p>
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center text-blue-900 font-semibold">
-                      View {productCount} Products <ChevronRight className="w-4 h-4 ml-1" />
-                    </div>
-                    <div className="bg-blue-900 text-white px-3 py-1 rounded-full text-sm font-bold">
-                      {productCount}
-                    </div>
+                  <h3 className="text-xl font-bold mb-3 text-[#1B3C9B]">{category.title}</h3>
+                  <p className="text-gray-600 mb-4 text-sm">{category.description}</p>
+                  <div className="flex items-center text-[#1B3C9B] font-semibold text-sm">
+                    View {productCount} Products <ChevronRight className="w-4 h-4 ml-1" />
                   </div>
                 </div>
               );
