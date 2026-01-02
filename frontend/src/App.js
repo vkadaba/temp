@@ -125,16 +125,20 @@ function App() {
       {/* Navigation */}
       <nav className="bg-white shadow-md sticky top-0 z-50" data-testid="main-navigation">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
+          <div className="flex justify-between items-center h-20">
             <div className="flex items-center">
-              <span className="text-2xl font-bold text-blue-900">Accurex Solutions</span>
+              <img 
+                src="https://customer-assets.emergentagent.com/job_accurex-refresh/artifacts/ztq8i08p_Accurex_Logo.png" 
+                alt="Accurex Solutions" 
+                className="h-10 w-auto"
+              />
             </div>
             <div className="hidden md:flex space-x-8">
-              <a href="#about" className="text-gray-700 hover:text-blue-900 transition">About</a>
-              <a href="#products" className="text-gray-700 hover:text-blue-900 transition">Products</a>
-              <a href="#partnerships" className="text-gray-700 hover:text-blue-900 transition">Partnerships</a>
-              <a href="#testimonials" className="text-gray-700 hover:text-blue-900 transition">Testimonials</a>
-              <a href="#contact" className="text-gray-700 hover:text-blue-900 transition">Contact</a>
+              <a href="#about" className="text-gray-700 hover:text-[#1B3C9B] transition font-medium">About</a>
+              <a href="#products" className="text-gray-700 hover:text-[#1B3C9B] transition font-medium">Products</a>
+              <a href="#partnerships" className="text-gray-700 hover:text-[#1B3C9B] transition font-medium">Partnerships</a>
+              <a href="#testimonials" className="text-gray-700 hover:text-[#1B3C9B] transition font-medium">Testimonials</a>
+              <a href="#contact" className="text-gray-700 hover:text-[#1B3C9B] transition font-medium">Contact</a>
             </div>
           </div>
         </div>
