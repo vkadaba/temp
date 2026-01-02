@@ -501,10 +501,10 @@ function App() {
       {selectedCategory && (
         <div className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4" onClick={closeProductModal}>
           <div className="bg-white rounded-2xl max-w-6xl w-full max-h-[90vh] overflow-hidden shadow-2xl" onClick={(e) => e.stopPropagation()}>
-            <div className="bg-gradient-to-r from-blue-900 to-blue-800 text-white p-6 flex justify-between items-center">
+            <div className="bg-gradient-to-r from-[#1B3C9B] to-[#2046A4] text-white p-6 flex justify-between items-center">
               <div>
                 <h2 className="text-3xl font-bold mb-2">{selectedCategory}</h2>
-                <p className="text-blue-200">{categoryProducts.length} Products Available</p>
+                <p className="text-blue-100">{categoryProducts.length} Products Available</p>
               </div>
               <button onClick={closeProductModal} className="text-white hover:bg-white/20 rounded-full p-2 transition">
                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -515,26 +515,28 @@ function App() {
             <div className="overflow-y-auto max-h-[calc(90vh-120px)] p-6">
               <div className="grid md:grid-cols-2 gap-6">
                 {categoryProducts.map((product, index) => (
-                  <div key={product.id} className="bg-gray-50 rounded-lg p-6 border border-gray-200 hover:shadow-lg transition">
-                    {product.is_featured && (
-                      <div className="inline-block bg-yellow-400 text-blue-900 px-3 py-1 rounded-full text-xs font-bold mb-3">
-                        ⭐ FEATURED
-                      </div>
-                    )}
-                    <h3 className="text-xl font-bold text-gray-900 mb-2">{product.name}</h3>
+                  <div key={product.id} className="bg-gray-50 rounded-lg p-6 border-2 border-gray-200 hover:border-[#1B3C9B] hover:shadow-lg transition">
+                    <div className="flex justify-between items-start mb-3">
+                      {product.is_featured && (
+                        <div className="inline-block bg-white text-[#1B3C9B] px-3 py-1 rounded-full text-xs font-bold border-2 border-[#1B3C9B]">
+                          ⭐ FEATURED
+                        </div>
+                      )}
+                    </div>
+                    <h3 className="text-xl font-bold text-[#1B3C9B] mb-2">{product.name}</h3>
                     {product.manufacturer && (
-                      <div className="text-sm text-blue-900 font-semibold mb-3">
-                        Manufacturer: {product.manufacturer}
+                      <div className="text-sm text-gray-700 font-semibold mb-3 bg-white px-3 py-1 rounded inline-block">
+                        🏭 {product.manufacturer}
                       </div>
                     )}
-                    <p className="text-gray-700 mb-4">{product.description}</p>
+                    <p className="text-gray-700 mb-4 text-sm">{product.description}</p>
                     {product.features && product.features.length > 0 && (
                       <div className="mb-4">
-                        <h4 className="font-semibold text-gray-900 mb-2">Key Features:</h4>
+                        <h4 className="font-semibold text-gray-900 mb-2 text-sm">Key Features:</h4>
                         <ul className="space-y-1">
                           {product.features.slice(0, 4).map((feature, idx) => (
-                            <li key={idx} className="text-sm text-gray-600 flex items-start">
-                              <CheckCircle className="w-4 h-4 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
+                            <li key={idx} className="text-xs text-gray-600 flex items-start">
+                              <CheckCircle className="w-4 h-4 text-[#1B3C9B] mr-2 mt-0.5 flex-shrink-0" />
                               <span>{feature}</span>
                             </li>
                           ))}
@@ -544,9 +546,6 @@ function App() {
                         )}
                       </div>
                     )}
-                    <button className="w-full bg-blue-900 text-white px-4 py-2 rounded-lg font-semibold hover:bg-blue-800 transition">
-                      Request Quote
-                    </button>
                   </div>
                 ))}
               </div>
