@@ -259,11 +259,11 @@ function App() {
           </div>
           
           {/* Image Upload Placeholder */}
-          <div className="mt-12 bg-blue-50 border-2 border-dashed border-blue-300 rounded-lg p-12 text-center" data-testid="product-images-placeholder">
-            <div className="text-blue-900 text-6xl mb-4">📷</div>
+          <div className="mt-12 bg-blue-50 border-2 border-dashed border-[#1B3C9B] rounded-lg p-12 text-center" data-testid="product-images-placeholder">
+            <div className="text-[#1B3C9B] text-6xl mb-4">📷</div>
             <h3 className="text-2xl font-bold text-gray-900 mb-2">Product Images Section</h3>
             <p className="text-gray-600 mb-4">Upload your product equipment images and updates here</p>
-            <div className="inline-block bg-blue-900 text-white px-6 py-2 rounded-lg">
+            <div className="inline-block bg-[#1B3C9B] text-white px-6 py-2 rounded-lg">
               Image Upload Area - Coming Soon
             </div>
           </div>
