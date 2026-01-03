@@ -78,27 +78,27 @@ function App() {
     {
       title: 'Electronic Assembly Products',
       description: 'PCB loader, Screen printer, Pick and Place, Reflow oven, 3D SPI',
-      icon: '🔧'
+      icon: '🔌'
     },
     {
       title: 'Assembly Tools',
       description: 'Component forming tools, ESD workbench, Soldering stations, BGA rework',
-      icon: '🛠️'
+      icon: '🔧'
     },
     {
       title: 'Inspection and Testing',
       description: 'AOI, 3D SPI, X-Ray inspection, Bond tester, Flying probe tester',
-      icon: '🔍'
+      icon: '🔬'
     },
     {
       title: 'Semiconductor',
       description: 'AOI, Manual bonders, Bond tester, Plasma cleaning, X-Ray inspection',
-      icon: '💾'
+      icon: '🔲'
     },
     {
       title: 'Non Destructive Testing',
       description: 'SAM, Topography measurement, X-Ray inspection',
-      icon: '📊'
+      icon: '📡'
     },
     {
       title: 'Mechanical',
