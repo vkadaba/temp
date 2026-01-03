@@ -489,7 +489,7 @@ function App() {
       <footer className="bg-gray-900 text-white py-8" data-testid="footer">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <p className="text-gray-400">
-            © 1987 - 2025. Accurex Solutions Pvt. Ltd. | Celebrating 39 Years of Excellence in Electronics Manufacturing Solutions
+            © 1987 - 2025. Accurex Solutions Pvt. Ltd. | 39 Years of Industry Experience | Trusted Partner in Electronics Manufacturing
           </p>
           <p className="text-sm text-gray-500 mt-2">
             <strong>Keywords:</strong> SMT Equipment India | PCB Assembly Solutions | Semiconductor Testing | Automatic Test Equipment | Electronic Manufacturing Services | Pick and Place Machines | Reflow Ovens | X-Ray Inspection | AOI Systems | Capital Equipment
