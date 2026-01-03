@@ -156,7 +156,7 @@ function App() {
                 Fulfilling Our Promise to Electronic Assembly Houses
               </h1>
               <p className="text-xl mb-8 text-blue-100">
-                Solutions from drawing board to product. Outstanding support to over 2000+ clients across Aerospace, Defence, Consumer Electronics, Medical, and EMS sectors.
+                Since 1987, Accurex Solutions has been a trusted partner for electronics manufacturing across EMS, automotive, defense, aerospace, and semiconductor sectors. With 1,500+ satisfied customers and 39 years of industry experience, we deliver 100% customer satisfaction.
               </p>
               <div className="flex flex-wrap gap-4">
                 <a href="#contact" className="bg-white text-[#1B3C9B] px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition shadow-lg" data-testid="cta-contact">
