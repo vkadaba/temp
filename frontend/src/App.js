@@ -204,7 +204,7 @@ function App() {
             <h2 className="text-4xl font-bold text-gray-900 mb-4">Welcome to Accurex Solutions</h2>
             <div className="w-24 h-1 bg-[#1B3C9B] mx-auto mb-6"></div>
             <p className="text-lg text-gray-700 max-w-3xl mx-auto">
-              Established in <strong>1987</strong>, Accurex Solutions Pvt. Ltd., Bengaluru, is a leading <strong>manufacturer, supplier, and service provider</strong> in the electronics industry. We manufacture customized <strong>Automatic Test Equipment (ATE)</strong>, test jigs, and PC-based fixtures, providing turnkey <strong>SMT process equipment</strong> for electronic assembly.
+              Since <strong>1987</strong>, Accurex Solutions Pvt. Ltd., Bengaluru, has been a <strong>trusted partner for electronics manufacturing</strong> across EMS, automotive, defense, aerospace, and semiconductor sectors. We provide <strong>end-to-end manufacturing solutions</strong> with an extensive product line covering pick & place, solder paste printing, multi-zone reflow, wave/selective soldering, vapor phase soldering, 3D inspection, AOI, and X-ray systems. For <strong>semiconductor assembly and test (OSAT)</strong>, we supply process equipment, testing equipment, inspection and reliability tools, and specialized custom equipment. With <strong>1,500+ satisfied customers</strong> and pan-India presence, we deliver flexible, purpose-built solutions for defense, aerospace, automotive, and high-mix production environments. <strong>100% Customer Satisfaction Guarantee</strong> is something we strive to achieve with every interaction.
             </p>
           </div>
           <div className="grid md:grid-cols-3 gap-8">
