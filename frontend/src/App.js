@@ -173,12 +173,12 @@ function App() {
                   <div className="text-center">
                     <Award className="w-12 h-12 mx-auto mb-2 text-white" />
                     <div className="text-3xl font-bold">39</div>
-                    <div className="text-sm text-blue-200">Years Excellence</div>
+                    <div className="text-sm text-blue-200">Years Industry Experience</div>
                   </div>
                   <div className="text-center">
                     <Users className="w-12 h-12 mx-auto mb-2 text-white" />
-                    <div className="text-3xl font-bold">2000+</div>
-                    <div className="text-sm text-blue-200">Clients</div>
+                    <div className="text-3xl font-bold">5400+</div>
+                    <div className="text-sm text-blue-200">Equipment Installations</div>
                   </div>
                   <div className="text-center">
                     <Wrench className="w-12 h-12 mx-auto mb-2 text-white" />
